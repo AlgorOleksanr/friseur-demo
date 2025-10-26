@@ -175,4 +175,23 @@
     <div class="container" id="datenschutz" style="margin-top:16px;color:var(--muted);font-size:14px"><strong>Datenschutzerklärung (Beispiel)</strong><br>Hinweise zur Verarbeitung personenbezogener Daten bei der Online‑Terminbuchung (Setmore) folgen hier.</div>
   </footer>
 
-  <a class="wa" href="https://wa.me/4917600000000?text=Hallo,%20ich%20m%C3%B
+  <script>
+    // Mobile menu toggle
+    const burger = document.getElementById('burger');
+    const menu = document.getElementById('menu');
+    burger?.addEventListener('click', ()=> menu.classList.toggle('open'));
+    menu?.querySelectorAll('a').forEach(a=>a.addEventListener('click',()=>menu.classList.remove('open')));
+
+    // Open Setmore widget from top buttons immediately
+    function openBooking(e){
+      if(e) e.preventDefault();
+      const anchor = document.getElementById('Setmore_button_iframe');
+      const href = anchor ? anchor.getAttribute('href') : null;
+      if(anchor){ try { anchor.click(); return; } catch(err){} }
+      if(href && href.startsWith('http')){ window.open(href,'_blank','noopener'); return; }
+      document.getElementById('buchen')?.scrollIntoView({behavior:'smooth'});
+    }
+    document.querySelectorAll('[data-open-booking]').forEach(el=> el.addEventListener('click', openBooking));
+  </script>
+</body>
+</html>
