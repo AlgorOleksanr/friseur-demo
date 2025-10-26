@@ -1,167 +1,257 @@
 <!doctype html>
-<html lang="de">
+<html lang="ru">
 <head>
   <meta charset="utf-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1" />
-  <title>Alle‑Friseur — stilvolle Herrenschnitte in Hamburg</title>
-  <meta name="description" content="Alle‑Friseur — stilvolle Herrenschnitte im Herzen Hamburgs. Online‑Termin, Herrenhaarschnitt, Bartpflege, Styling."> 
+  <title>Alle‑Friseur — стильные стрижки в Гамбурге</title>
+  <meta name="description" content="Alle‑Friseur — стильные стрижки в центре Гамбурга. Онлайн‑запись, мужские стрижки, борода, уход." />
   <link rel="preconnect" href="https://fonts.googleapis.com">
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
   <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;600&display=swap" rel="stylesheet">
   <style>
     :root{
-      --bg:#0f1115;
-      --panel:#141927;
-      --text:#e8f0f2;
-      --muted:#a6b4b8;
-      --accent:#33cccc;
-      --accent-2:#5ee7e7;
+      --bg:#0f1115;          /* общий фон */
+      --panel:#141927;       /* панели/карточки */
+      --text:#e8f0f2;        /* основной текст */
+      --muted:#a6b4b8;       /* вторичный текст */
+      --accent:#33cccc;      /* бирюза */
+      --accent-2:#5ee7e7;    /* светлее для hover */
+      --danger:#ff5757;
       --shadow:0 10px 30px rgba(0,0,0,.35);
       --radius:16px;
       --maxw:1120px;
     }
     *{box-sizing:border-box}
     html{scroll-behavior:smooth}
-    body{margin:0;font-family:Poppins,system-ui,-apple-system,Segoe UI,Roboto,Ubuntu,"Helvetica Neue",Arial;background:var(--bg);color:var(--text)}
-    a{color:inherit;text-decoration:none}
-    img{max-width:100%;display:block}
-    .container{width:100%;max-width:var(--maxw);margin:0 auto;padding:0 20px}
-    .header{position:sticky;top:0;z-index:50;backdrop-filter:saturate(140%) blur(8px);background:rgba(15,17,21,.7);border-bottom:1px solid rgba(255,255,255,.06)}
-    .nav{display:flex;align-items:center;justify-content:space-between;height:64px}
-    .logo{font-weight:700;letter-spacing:.3px}
+    body{margin:0; font-family:Poppins,system-ui,-apple-system,Segoe UI,Roboto,Ubuntu,"Helvetica Neue",Arial; background:var(--bg); color:var(--text)}
+    a{color:inherit; text-decoration:none}
+    img{max-width:100%; display:block}
+    .container{width:100%; max-width:var(--maxw); margin:0 auto; padding:0 20px}
+
+    /* Header */
+    .header{position:sticky; top:0; z-index:50; backdrop-filter:saturate(140%) blur(8px); background:rgba(15,17,21,.7); border-bottom:1px solid rgba(255,255,255,.06)}
+    .nav{display:flex; align-items:center; justify-content:space-between; height:64px}
+    .logo{font-weight:700; letter-spacing:.3px}
     .logo b{color:var(--accent)}
-    .menu{display:flex;gap:18px;align-items:center}
-    .menu a{padding:8px 10px;color:var(--muted)}
+    .menu{display:flex; gap:18px; align-items:center}
+    .menu a{padding:8px 10px; color:var(--muted)}
     .menu a:hover{color:var(--text)}
-    .cta{margin-left:12px;display:inline-flex;align-items:center;gap:8px;padding:12px 18px;background:var(--accent);color:#0b1114!important;border-radius:999px;font-weight:600;box-shadow:var(--shadow)}
+    .cta{margin-left:12px; display:inline-flex; align-items:center; gap:8px; padding:12px 18px; background:var(--accent); color:#0b1114; border-radius:999px; font-weight:600; box-shadow:var(--shadow)}
     .cta:hover{background:var(--accent-2)}
-    .burger{display:none;width:42px;height:42px;border-radius:10px;border:1px solid rgba(255,255,255,.1);background:transparent;color:var(--text)}
-    @media(max-width:880px){.menu{position:fixed;inset:64px 0 auto 0;background:rgba(20,25,39,.98);padding:16px;flex-direction:column;align-items:flex-start;border-bottom:1px solid rgba(255,255,255,.06);display:none}.menu.open{display:flex}.burger{display:inline-block}.cta{display:none}}
-    .hero{position:relative;padding:90px 0 80px;background:linear-gradient(180deg,rgba(51,204,204,.12),rgba(51,204,204,0)40%),radial-gradient(1200px 500px at 0% 0%,rgba(94,231,231,.08),transparent),url("assets/img/hero.png")center/cover no-repeat fixed}
-    .hero::after{content:"";position:absolute;inset:0;background:linear-gradient(to bottom,rgba(15,17,21,.55),rgba(15,17,21,1)80%)}
-    .hero .inner{position:relative;z-index:1;display:grid;gap:18px;max-width:760px}
-    .kicker{color:var(--accent);font-weight:600;letter-spacing:.4px}
-    h1{margin:0;font-size:44px;line-height:1.12}
-    .subtitle{color:var(--muted);font-size:18px}
-    .actions{display:flex;gap:12px;align-items:center;flex-wrap:wrap;margin-top:8px}
-    .btn{display:inline-flex;padding:12px 16px;border-radius:12px;border:1px solid rgba(255,255,255,.12);color:var(--text)}
-    .btn-primary{background:var(--accent);color:#0b1114;border:none;font-weight:600}
+
+    /* Burger for mobile */
+    .burger{display:none; width:42px; height:42px; border-radius:10px; border:1px solid rgba(255,255,255,.1); background:transparent; color:var(--text)}
+    @media (max-width: 880px){
+      .menu{position:fixed; inset:64px 0 auto 0; background:rgba(20,25,39,.98); padding:16px; flex-direction:column; align-items:flex-start; border-bottom:1px solid rgba(255,255,255,.06); display:none}
+      .menu.open{display:flex}
+      .burger{display:inline-block}
+      .cta{display:none} /* большая кнопка только на десктопе, в секции героя будет копия */
+    }
+
+    /* Hero */
+    .hero{position:relative; padding:90px 0 80px; background:linear-gradient(180deg, rgba(51,204,204,.12), rgba(51,204,204,0) 40%), radial-gradient(1200px 500px at 0% 0%, rgba(94,231,231,.08), transparent), url("assets/img/hero.jpg") center/cover no-repeat fixed;}
+    .hero::after{content:""; position:absolute; inset:0; background:linear-gradient(to bottom, rgba(15,17,21,.55), rgba(15,17,21,1) 80%)}
+    .hero .inner{position:relative; z-index:1; display:grid; gap:18px; max-width:760px}
+    .kicker{color:var(--accent); font-weight:600; letter-spacing:.4px}
+    h1{margin:0; font-size:44px; line-height:1.12}
+    .subtitle{color:var(--muted); font-size:18px}
+    .actions{display:flex; gap:12px; align-items:center; flex-wrap:wrap; margin-top:8px}
+    .btn{display:inline-flex; padding:12px 16px; border-radius:12px; border:1px solid rgba(255,255,255,.12); color:var(--text)}
+    .btn-primary{background:var(--accent); color:#0b1114; border:none; font-weight:600}
     .btn-primary:hover{background:var(--accent-2)}
+
+    /* Sections */
     section{padding:72px 0}
-    .section-title{font-size:28px;margin:0 0 14px}
-    .section-lead{color:var(--muted);margin:0 0 28px}
-    .cards{display:grid;grid-template-columns:repeat(3,1fr);gap:18px}
-    @media(max-width:960px){.cards{grid-template-columns:repeat(2,1fr)}}
-    @media(max-width:640px){.cards{grid-template-columns:1fr}}
-    .card{background:var(--panel);border:1px solid rgba(255,255,255,.06);border-radius:var(--radius);padding:18px;box-shadow:var(--shadow)}
-    .card h3{margin:6px 0 6px;font-size:18px}
-    .pill{display:inline-block;font-size:12px;color:#0b1114;background:var(--accent);padding:4px 8px;border-radius:999px;font-weight:600}
-    .price{font-size:22px;font-weight:700}
-    .meta{color:var(--muted);font-size:14px}
-    .team{display:grid;grid-template-columns:repeat(4,1fr);gap:18px}
-    @media(max-width:1024px){.team{grid-template-columns:repeat(2,1fr)}}
-    @media(max-width:560px){.team{grid-template-columns:1fr}}
-    .person{background:var(--panel);border:1px solid rgba(255,255,255,.06);border-radius:var(--radius);overflow:hidden;box-shadow:var(--shadow)}
-    .person .photo{aspect-ratio:4/3;background:#0c0f14 url("assets/img/team-placeholder.png")center/cover no-repeat}
+    .section-title{font-size:28px; margin:0 0 14px}
+    .section-lead{color:var(--muted); margin:0 0 28px}
+
+    /* Prices */
+    .cards{display:grid; grid-template-columns:repeat(3,1fr); gap:18px}
+    @media (max-width: 960px){.cards{grid-template-columns:repeat(2,1fr)}}
+    @media (max-width: 640px){.cards{grid-template-columns:1fr}}
+    .card{background:var(--panel); border:1px solid rgba(255,255,255,.06); border-radius:var(--radius); padding:18px; box-shadow:var(--shadow)}
+    .card h3{margin:6px 0 6px; font-size:18px}
+    .pill{display:inline-block; font-size:12px; color:#0b1114; background:var(--accent); padding:4px 8px; border-radius:999px; font-weight:600}
+    .price{font-size:22px; font-weight:700}
+    .meta{color:var(--muted); font-size:14px}
+
+    /* Team */
+    .team{display:grid; grid-template-columns:repeat(4,1fr); gap:18px}
+    @media (max-width: 1024px){.team{grid-template-columns:repeat(2,1fr)}}
+    @media (max-width: 560px){.team{grid-template-columns:1fr}}
+    .person{background:var(--panel); border:1px solid rgba(255,255,255,.06); border-radius:var(--radius); overflow:hidden; box-shadow:var(--shadow)}
+    .person .photo{aspect-ratio:4/3; background:#0c0f14 url("assets/img/team-placeholder.jpg") center/cover no-repeat}
     .person .box{padding:14px}
-    .role{color:var(--muted);font-size:14px}
-    .contact-grid{display:grid;grid-template-columns:1.1fr .9fr;gap:18px}
-    @media(max-width:960px){.contact-grid{grid-template-columns:1fr}}
-    .panel{background:var(--panel);border:1px solid rgba(255,255,255,.06);border-radius:var(--radius);padding:18px;box-shadow:var(--shadow)}
-    .row{display:grid;grid-template-columns:120px 1fr;gap:8px;padding:8px 0;border-bottom:1px dashed rgba(255,255,255,.08)}
+    .role{color:var(--muted); font-size:14px}
+
+    /* Kontakt */
+    .contact-grid{display:grid; grid-template-columns:1.1fr .9fr; gap:18px}
+    @media (max-width: 960px){.contact-grid{grid-template-columns:1fr;}}
+    .panel{background:var(--panel); border:1px solid rgba(255,255,255,.06); border-radius:var(--radius); padding:18px; box-shadow:var(--shadow)}
+    .row{display:grid; grid-template-columns:120px 1fr; gap:8px; padding:8px 0; border-bottom:1px dashed rgba(255,255,255,.08)}
     .row:last-child{border-bottom:none}
-    .booking-wrap{background:linear-gradient(180deg,rgba(51,204,204,.08),rgba(51,204,204,0));border:1px solid rgba(255,255,255,.06);border-radius:var(--radius);padding:18px}
-    .booking-hint{color:var(--muted);font-size:14px;margin:8px 0 0}
-    footer{padding:40px 0 60px;color:var(--muted);border-top:1px solid rgba(255,255,255,.06)}
-    .foot{display:flex;justify-content:space-between;gap:12px;flex-wrap:wrap}
+
+    /* Booking */
+    .booking-wrap{background:linear-gradient(180deg, rgba(51,204,204,.08), rgba(51,204,204,0)); border:1px solid rgba(255,255,255,.06); border-radius:var(--radius); padding:18px}
+    .booking-hint{color:var(--muted); font-size:14px; margin:8px 0 0}
+
+    /* Footer */
+    footer{padding:40px 0 60px; color:var(--muted); border-top:1px solid rgba(255,255,255,.06)}
+    .foot{display:flex; justify-content:space-between; gap:12px; flex-wrap:wrap}
     .foot a{color:var(--muted)}
     .foot a:hover{color:var(--text)}
-    .wa{position:fixed;right:18px;bottom:18px;width:54px;height:54px;border-radius:50%;background:var(--accent);color:#0b1114;display:flex;align-items:center;justify-content:center;font-weight:800;box-shadow:var(--shadow)}
+
+    /* Floating WhatsApp */
+    .wa{position:fixed; right:18px; bottom:18px; width:54px; height:54px; border-radius:50%; background:var(--accent); color:#0b1114; display:flex; align-items:center; justify-content:center; font-weight:800; box-shadow:var(--shadow)}
     .wa:hover{background:var(--accent-2)}
   </style>
 </head>
 <body>
+  <!-- HEADER -->
   <header class="header">
     <div class="container nav">
-      <a href="#home" class="logo" aria-label="Alle‑Friseur — Startseite">Alle‑<b>Friseur</b></a>
-      <nav class="menu" id="menu" aria-label="Hauptmenü">
+      <a href="#home" class="logo" aria-label="Alle‑Friseur — на главную">Alle‑<b>Friseur</b></a>
+
+      <nav class="menu" id="menu" aria-label="Главное меню">
         <a href="#preise">Preise</a>
         <a href="#team">Team</a>
         <a href="#kontakt">Kontakt</a>
-        <a href="#" class="cta" title="Online‑Termin buchen" id="cta-nav" data-open-booking>Termin buchen</a>
+        <a href="#buchen" class="cta" title="Онлайн‑запись">Termin buchen</a>
       </nav>
-      <button class="burger" id="burger" aria-label="Menü">☰</button>
+
+      <button class="burger" id="burger" aria-label="Меню">
+        ☰
+      </button>
     </div>
   </header>
 
+  <!-- HERO -->
   <section id="home" class="hero">
     <div class="container inner">
       <div class="kicker">Hamburg · City</div>
-      <h1>Alle‑Friseur — stilvolle Schnitte im Zentrum von Hamburg</h1>
-      <p class="subtitle">Herrenhaarschnitte, Bart- und Stylingpflege. Online-Termin in einer Minute.</p>
+      <h1>Alle‑Friseur — стильные стрижки в центре Гамбурга</h1>
+      <p class="subtitle">Мужские стрижки, уход за бородой и укладкой. Онлайн‑запись за минуту.</p>
       <div class="actions">
-        <a href="#" class="btn-primary btn" id="cta-hero" data-open-booking>Jetzt Termin buchen</a>
-        <a href="#preise" class="btn">Preise ansehen</a>
+        <a href="#buchen" class="btn-primary btn">Jetzt Termin buchen</a>
+        <a href="#preise" class="btn">Смотреть цены</a>
       </div>
     </div>
   </section>
 
+  <!-- PREISE -->
   <section id="preise">
     <div class="container">
       <h2 class="section-title">Preise · Herren</h2>
-      <p class="section-lead">Transparente Preise und klare Zeiten. Aktuell nur Herren‑Services.</p>
+      <p class="section-lead">Фиксированные цены и понятные длительности. Все услуги только для мужчин.</p>
+
       <div class="cards">
-        <article class="card"><span class="pill">Popular</span><h3>Haarschnitt · Herren</h3><p class="meta">Dauer: ca. 30 Min</p><div class="price">€28</div></article>
-        <article class="card"><h3>Skin Fade / Fade</h3><p class="meta">Dauer: ca. 40 Min</p><div class="price">€33</div></article>
-        <article class="card"><h3>Maschinen­schnitt</h3><p class="meta">Dauer: ca. 20 Min</p><div class="price">€20</div></article>
-        <article class="card"><h3>Bart & Konturen</h3><p class="meta">Dauer: ca. 20 Min</p><div class="price">€18</div></article>
-        <article class="card"><h3>Haarschnitt + Bart</h3><p class="meta">Dauer: ca. 50 Min</p><div class="price">€42</div></article>
-        <article class="card"><h3>Graukaschierung (Tönung)</h3><p class="meta">Dauer: ca. 25 Min</p><div class="price">€27</div></article>
+        <article class="card">
+          <span class="pill">Popular</span>
+          <h3>Haarschnitt · Herren</h3>
+          <p class="meta">Длительность: ~30 мин</p>
+          <div class="price">€28</div>
+        </article>
+        <article class="card">
+          <h3>Skin Fade / Fade</h3>
+          <p class="meta">Длительность: ~40 мин</p>
+          <div class="price">€33</div>
+        </article>
+        <article class="card">
+          <h3>Maschinen­schnitt</h3>
+          <p class="meta">Длительность: ~20 мин</p>
+          <div class="price">€20</div>
+        </article>
+        <article class="card">
+          <h3>Bart & Konturen</h3>
+          <p class="meta">Длительность: ~20 мин</p>
+          <div class="price">€18</div>
+        </article>
+        <article class="card">
+          <h3>Haarschnitt + Bart</h3>
+          <p class="meta">Длительность: ~50 мин</p>
+          <div class="price">€42</div>
+        </article>
+        <article class="card">
+          <h3>Graukaschierung (Tönung)</h3>
+          <p class="meta">Длительность: ~25 мин</p>
+          <div class="price">€27</div>
+        </article>
       </div>
     </div>
   </section>
 
+  <!-- TEAM -->
   <section id="team">
     <div class="container">
       <h2 class="section-title">Team</h2>
-      <p class="section-lead">Vier Spezialisten. Unterschiedliche Stile – ein Qualitätsstandard.</p>
+      <p class="section-lead">Четыре специалиста. Разные стили — один стандарт качества.</p>
+
       <div class="team">
-        <article class="person"><div class="photo" style="background-image:url('assets/img/team-lukas.png')"></div><div class="box"><h3>Lukas Schneider</h3><div class="role">Master Barber · Klassik & Textur</div></div></article>
-        <article class="person"><div class="photo" style="background-image:url('assets/img/team-meral.png')"></div><div class="box"><h3>Meral Yılmaz</h3><div class="role">Fade Specialist · Konturen & Linien</div></div></article>
-        <article class="person"><div class="photo" style="background-image:url('assets/img/team-jonas.png')"></div><div class="box"><h3>Jonas Becker</h3><div class="role">Beard Expert · Bartpflege</div></div></article>
-        <article class="person"><div class="photo" style="background-image:url('assets/img/team-levi.png')"></div><div class="box"><h3>Levi Müller</h3><div class="role">Color & Toning · Natürliche dunkle Töne</div></div></article>
+        <article class="person">
+          <div class="photo" style="background-image:url('assets/img/team-lukas.jpg')" aria-hidden="true"></div>
+          <div class="box">
+            <h3>Lukas Schneider</h3>
+            <div class="role">Master Barber · Классика и текстура</div>
+          </div>
+        </article>
+        <article class="person">
+          <div class="photo" style="background-image:url('assets/img/team-meral.jpg')" aria-hidden="true"></div>
+          <div class="box">
+            <h3>Meral Yılmaz</h3>
+            <div class="role">Fade Specialist · Контуры и линии</div>
+          </div>
+        </article>
+        <article class="person">
+          <div class="photo" style="background-image:url('assets/img/team-jonas.jpg')" aria-hidden="true"></div>
+          <div class="box">
+            <h3>Jonas Becker</h3>
+            <div class="role">Beard Expert · Уход за бородой</div>
+          </div>
+        </article>
+        <article class="person">
+          <div class="photo" style="background-image:url('assets/img/team-levi.jpg')" aria-hidden="true"></div>
+          <div class="box">
+            <h3>Levi Müller</h3>
+            <div class="role">Color & Toning · Натуральная тёмная гамма</div>
+          </div>
+        </article>
       </div>
     </div>
   </section>
 
+  <!-- KONTAKT -->
   <section id="kontakt">
     <div class="container">
       <h2 class="section-title">Kontakt</h2>
-      <p class="section-lead">Schreibe per WhatsApp, rufe an oder komm vorbei. Wir sind in der Nähe.</p>
+      <p class="section-lead">Пишите в WhatsApp, звоните или приходите. Мы рядом.</p>
+
       <div class="contact-grid">
         <div class="panel">
           <div class="row"><strong>Adresse</strong><div>Mönckebergstraße 1, 20095 Hamburg</div></div>
           <div class="row"><strong>Telefon</strong><div><a href="tel:+4917600000000">+49 176 00000000</a></div></div>
-          <div class="row"><strong>WhatsApp</strong><div><a href="https://wa.me/4917600000000?text=Hallo,%20ich%20m%C3%B6chte%20einen%20Termin%20buchen" target="_blank" rel="noopener">Per WhatsApp schreiben</a></div></div>
+          <div class="row"><strong>WhatsApp</strong><div><a href="https://wa.me/4917600000000?text=Hallo,%20ich%20m%C3%B6chte%20einen%20Termin%20buchen" target="_blank" rel="noopener">Написать в WhatsApp</a></div></div>
           <div class="row"><strong>E‑Mail</strong><div><a href="mailto:info@alle-friseur.de">info@alle-friseur.de</a></div></div>
           <div class="row"><strong>Öffnungszeiten</strong><div>Mon–Fri 09:00–19:00, Sat 10:00–16:00</div></div>
         </div>
-        <div class="panel" aria-label="Karte">
-          <iframe title="Alle‑Friseur Hamburg" width="100%" height="320" style="border:0;border-radius:12px" loading="lazy" allowfullscreen referrerpolicy="no-referrer-when-downgrade" src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d1868.5508!2d9.997!3d53.551!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x0%3A0x0!2sHamburg%20City!5e0!3m2!1sde!2sde!4v0000000000"></iframe>
+        <div class="panel" aria-label="Карта">
+          <iframe title="Alle‑Friseur Hamburg" width="100%" height="320" style="border:0; border-radius:12px" loading="lazy" allowfullscreen
+            referrerpolicy="no-referrer-when-downgrade"
+            src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d1868.5508!2d9.997!3d53.551!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x0%3A0x0!2sHamburg%20City!5e0!3m2!1sde!2sde!4v0000000000">
+          </iframe>
         </div>
       </div>
     </div>
   </section>
 
+  <!-- BUCHEN -->
   <section id="buchen">
     <div class="container">
       <h2 class="section-title">Online buchen</h2>
-      <p class="section-lead">Wähle Mitarbeiter und Uhrzeit. Bestätigung kommt per E‑Mail. Bei Bedarf einfach per WhatsApp schreiben.</p>
+      <p class="section-lead">Выберите мастера и время. Подтверждение придёт на e‑mail. Если нужно, пишите в WhatsApp.</p>
+
       <div class="booking-wrap">
-        <!-- ▼▼▼ SETMORE WIDGET CODE ▼▼▼ -->
-        <a id="Setmore_button_iframe" href="https://booking.setmore.com/s/YOUR_SLUG">Termin buchen</a>
-        <script id="setmore_script" type="text/javascript" src="https://my.setmore.com/js/iframe/setmore_widget.js"></script>
-        <p class="booking-hint">Hinweis: Ersetze <code>YOUR_SLUG</code> durch deine Setmore‑Adresse und füge den Code oben ein.</p>
+        <script id='setmore_script' type='text/javascript' src='https://assets.setmore.com/integration/static/setmoreIframeLive.js'></script><a style='float:none;' id='Setmore_button_iframe' href='https://algor.setmore.com'><img border='none' src='https://assets.setmore.com/setmore/images/2.0/Settings/book-now-black.svg' alt='Click here to book the appointment using setmore' /></a>
+        <p class="booking-hint">Подсказка: замените <code>YOUR_SLUG</code> на свой адрес Setmore и вставьте код выше.</p>
       </div>
     </div>
   </section>
@@ -169,29 +259,34 @@
   <footer>
     <div class="container foot">
       <div>© Alle‑Friseur, Hamburg</div>
-      <div><a href="#impressum">Impressum</a> · <a href="#datenschutz">Datenschutz</a></div>
+      <div>
+        <a href="#impressum">Impressum</a>
+        ·
+        <a href="#datenschutz">Datenschutz</a>
+      </div>
     </div>
-    <div class="container" id="impressum" style="margin-top:16px;color:var(--muted);font-size:14px"><strong>Impressum (Beispiel)</strong><br>Alle‑Friseur · Mönckebergstraße 1, 20095 Hamburg · USt‑IdNr.: — · Vertretungsberechtigte Person: —</div>
-    <div class="container" id="datenschutz" style="margin-top:16px;color:var(--muted);font-size:14px"><strong>Datenschutzerklärung (Beispiel)</strong><br>Hinweise zur Verarbeitung personenbezogener Daten bei der Online‑Terminbuchung (Setmore) folgen hier.</div>
+
+    <div class="container" id="impressum" style="margin-top:16px; color:var(--muted); font-size:14px">
+      <strong>Impressum (пример)</strong><br>
+      Alle‑Friseur · Mönckebergstraße 1, 20095 Hamburg · USt‑IdNr.: — · Vertretungsberechtigte Person: —
+    </div>
+    <div class="container" id="datenschutz" style="margin-top:16px; color:var(--muted); font-size:14px">
+      <strong>Datenschutzerklärung (пример)</strong><br>
+      Здесь разместите информацию о сборе и обработке персональных данных при онлайн‑записи.
+    </div>
   </footer>
+
+  <!-- Floating WhatsApp button (замените номер) -->
+  <a class="wa" href="https://wa.me/4917600000000?text=Hallo,%20ich%20m%C3%B6chte%20einen%20Termin%20buchen" target="_blank" rel="noopener" aria-label="WhatsApp">WA</a>
 
   <script>
     // Mobile menu toggle
     const burger = document.getElementById('burger');
     const menu = document.getElementById('menu');
     burger?.addEventListener('click', ()=> menu.classList.toggle('open'));
-    menu?.querySelectorAll('a').forEach(a=>a.addEventListener('click',()=>menu.classList.remove('open')));
 
-    // Open Setmore widget from top buttons immediately
-    function openBooking(e){
-      if(e) e.preventDefault();
-      const anchor = document.getElementById('Setmore_button_iframe');
-      const href = anchor ? anchor.getAttribute('href') : null;
-      if(anchor){ try { anchor.click(); return; } catch(err){} }
-      if(href && href.startsWith('http')){ window.open(href,'_blank','noopener'); return; }
-      document.getElementById('buchen')?.scrollIntoView({behavior:'smooth'});
-    }
-    document.querySelectorAll('[data-open-booking]').forEach(el=> el.addEventListener('click', openBooking));
+    // Закрывать меню при клике по ссылке (моб.)
+    menu?.querySelectorAll('a').forEach(a=>a.addEventListener('click',()=>menu.classList.remove('open')));
   </script>
 </body>
 </html>
