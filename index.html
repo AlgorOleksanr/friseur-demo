@@ -3,168 +3,366 @@
 <head>
   <meta charset="utf-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1" />
-  <title>Alle‑Friseur — stilvolle Herrenschnitte in Hamburg</title>
-  <meta name="description" content="Alle‑Friseur — stilvolle Herrenschnitte im Herzen Hamburgs. Online‑Termin, Herrenhaarschnitt, Bartpflege, Styling."> 
+  <title>Alle‑Friseur — moderner Herrensalon in Hamburg</title>
+  <meta name="description" content="Alle‑Friseur: Moderner Herrensalon im Herzen Hamburgs. Perfekte Haarschnitte, Bartpflege und Styling inkl. Online-Terminbuchung.">
   <link rel="preconnect" href="https://fonts.googleapis.com">
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-  <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;600&display=swap" rel="stylesheet">
+  <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;500;600;700&display=swap" rel="stylesheet">
   <style>
     :root{
-      --bg:#0f1115;
-      --panel:#141927;
-      --text:#e8f0f2;
-      --muted:#a6b4b8;
-      --accent:#33cccc;
-      --accent-2:#5ee7e7;
-      --shadow:0 10px 30px rgba(0,0,0,.35);
-      --radius:16px;
-      --maxw:1120px;
+      --bg:#080a0f;
+      --bg-soft:#0f121b;
+      --panel:#151b2b;
+      --panel-soft:#1b2236;
+      --text:#f0f5f7;
+      --muted:#aab9c3;
+      --accent:#2dd4bf;
+      --accent-2:#5eead4;
+      --accent-dark:#0f766e;
+      --shadow:0 18px 40px rgba(0,0,0,.35);
+      --radius:18px;
+      --maxw:1180px;
     }
-    *{box-sizing:border-box}
+    *,*::before,*::after{box-sizing:border-box}
     html{scroll-behavior:smooth}
-    body{margin:0;font-family:Poppins,system-ui,-apple-system,Segoe UI,Roboto,Ubuntu,"Helvetica Neue",Arial;background:var(--bg);color:var(--text)}
+    body{margin:0;font-family:Poppins,system-ui,-apple-system,"Segoe UI",Roboto,Ubuntu,"Helvetica Neue",Arial;background:radial-gradient(160% 120% at 50% 0%,rgba(45,212,191,.12),transparent 55%),var(--bg);color:var(--text);line-height:1.6}
     a{color:inherit;text-decoration:none}
     img{max-width:100%;display:block}
-    .container{width:100%;max-width:var(--maxw);margin:0 auto;padding:0 20px}
-    .header{position:sticky;top:0;z-index:50;backdrop-filter:saturate(140%) blur(8px);background:rgba(15,17,21,.7);border-bottom:1px solid rgba(255,255,255,.06)}
-    .nav{display:flex;align-items:center;justify-content:space-between;height:64px}
-    .logo{font-weight:700;letter-spacing:.3px}
+    main{display:block}
+    .container{width:100%;max-width:var(--maxw);margin:0 auto;padding:0 22px}
+    .skip-link{position:absolute;left:-999px;top:auto;width:1px;height:1px;overflow:hidden}
+    .skip-link:focus{left:16px;top:16px;width:auto;height:auto;padding:12px 16px;background:var(--accent);color:#041013;border-radius:999px;z-index:1000}
+    .header{position:sticky;top:0;z-index:60;background:rgba(8,10,15,.82);backdrop-filter:saturate(150%) blur(16px);border-bottom:1px solid rgba(255,255,255,.06)}
+    .nav{display:flex;align-items:center;justify-content:space-between;height:68px}
+    .logo{font-weight:700;letter-spacing:.4px;font-size:1.12rem}
     .logo b{color:var(--accent)}
-    .menu{display:flex;gap:18px;align-items:center}
-    .menu a{padding:8px 10px;color:var(--muted)}
-    .menu a:hover{color:var(--text)}
-    .cta{margin-left:12px;display:inline-flex;align-items:center;gap:8px;padding:12px 18px;background:var(--accent);color:#0b1114!important;border-radius:999px;font-weight:600;box-shadow:var(--shadow)}
-    .cta:hover{background:var(--accent-2)}
-    .burger{display:none;width:42px;height:42px;border-radius:10px;border:1px solid rgba(255,255,255,.1);background:transparent;color:var(--text)}
-    @media(max-width:880px){.menu{position:fixed;inset:64px 0 auto 0;background:rgba(20,25,39,.98);padding:16px;flex-direction:column;align-items:flex-start;border-bottom:1px solid rgba(255,255,255,.06);display:none}.menu.open{display:flex}.burger{display:inline-block}.cta{display:none}}
-    .hero{position:relative;padding:90px 0 80px;background:linear-gradient(180deg,rgba(51,204,204,.12),rgba(51,204,204,0)40%),radial-gradient(1200px 500px at 0% 0%,rgba(94,231,231,.08),transparent),url("assets/img/hero.png")center/cover no-repeat fixed}
-    .hero::after{content:"";position:absolute;inset:0;background:linear-gradient(to bottom,rgba(15,17,21,.55),rgba(15,17,21,1)80%)}
-    .hero .inner{position:relative;z-index:1;display:grid;gap:18px;max-width:760px}
-    .kicker{color:var(--accent);font-weight:600;letter-spacing:.4px}
-    h1{margin:0;font-size:44px;line-height:1.12}
-    .subtitle{color:var(--muted);font-size:18px}
-    .actions{display:flex;gap:12px;align-items:center;flex-wrap:wrap;margin-top:8px}
-    .btn{display:inline-flex;padding:12px 16px;border-radius:12px;border:1px solid rgba(255,255,255,.12);color:var(--text)}
-    .btn-primary{background:var(--accent);color:#0b1114;border:none;font-weight:600}
-    .btn-primary:hover{background:var(--accent-2)}
-    section{padding:72px 0}
-    .section-title{font-size:28px;margin:0 0 14px}
-    .section-lead{color:var(--muted);margin:0 0 28px}
-    .cards{display:grid;grid-template-columns:repeat(3,1fr);gap:18px}
+    .menu{display:flex;align-items:center;gap:22px;font-size:.95rem}
+    .menu a{padding:8px 0;color:var(--muted);transition:color .2s ease}
+    .menu a:hover,.menu a:focus-visible{color:var(--text)}
+    .cta{margin-left:10px;display:inline-flex;align-items:center;gap:8px;padding:12px 20px;background:var(--accent);color:#041013!important;border-radius:999px;font-weight:600;box-shadow:var(--shadow);transition:transform .2s ease,box-shadow .2s ease,background .2s ease}
+    .cta:hover,.cta:focus-visible{background:var(--accent-2);transform:translateY(-1px)}
+    .burger{display:none;width:44px;height:44px;border-radius:12px;border:1px solid rgba(255,255,255,.12);background:transparent;color:var(--text);font-size:1.4rem}
+    @media(max-width:900px){
+      .menu{position:fixed;inset:70px 18px auto 18px;background:var(--panel-soft);flex-direction:column;align-items:flex-start;padding:18px 20px;border:1px solid rgba(255,255,255,.08);border-radius:16px;box-shadow:var(--shadow);display:none}
+      .menu.open{display:flex}
+      .burger{display:inline-flex;align-items:center;justify-content:center}
+      .cta{display:none}
+    }
+
+    .hero{position:relative;padding:120px 0 110px;background:radial-gradient(140% 120% at 10% -10%,rgba(93,230,220,.18),transparent 60%),linear-gradient(120deg,rgba(15,23,42,.86),rgba(8,10,15,.95));overflow:hidden}
+    .hero::after{content:"";position:absolute;inset:-120px -160px 40%;background:radial-gradient(800px 400px at 80% 20%,rgba(45,212,191,.12),transparent 70%);z-index:0}
+    .hero .inner{position:relative;z-index:1;display:grid;grid-template-columns:1.05fr .95fr;gap:48px;align-items:center}
+    @media(max-width:980px){.hero .inner{grid-template-columns:1fr;gap:36px;text-align:left}}
+    .kicker{color:var(--accent);font-weight:600;text-transform:uppercase;letter-spacing:1.6px;font-size:.78rem}
+    h1{margin:12px 0;font-size:3rem;line-height:1.08}
+    .subtitle{color:var(--muted);font-size:1.08rem;max-width:540px}
+    .hero-actions{display:flex;align-items:center;gap:14px;flex-wrap:wrap;margin-top:24px}
+    .btn{display:inline-flex;align-items:center;gap:8px;padding:12px 18px;border-radius:14px;border:1px solid rgba(255,255,255,.12);color:var(--text);font-weight:500;transition:background .2s ease,transform .2s ease,border-color .2s ease}
+    .btn:hover,.btn:focus-visible{border-color:rgba(255,255,255,.3);background:rgba(255,255,255,.04);transform:translateY(-1px)}
+    .btn-primary{background:var(--accent);border:none;color:#041013;font-weight:600}
+    .btn-primary:hover,.btn-primary:focus-visible{background:var(--accent-2)}
+    .hero-list{display:grid;gap:12px;margin-top:32px;padding:0;list-style:none}
+    .hero-list li{display:flex;align-items:flex-start;gap:12px;color:var(--muted)}
+    .hero-list svg{flex-shrink:0;margin-top:2px}
+    .hero-media{position:relative;border-radius:var(--radius);overflow:hidden;min-height:360px;background:radial-gradient(circle at 20% 20%,rgba(45,212,191,.15),transparent 60%),url('assets/img/team-lukas.png') center/cover no-repeat;border:1px solid rgba(255,255,255,.05);box-shadow:var(--shadow)}
+    .hero-media::after{content:"Hamburg City";position:absolute;bottom:18px;left:18px;background:rgba(8,10,15,.68);backdrop-filter:blur(6px);padding:10px 16px;border-radius:999px;font-size:.85rem;color:var(--accent)}
+
+    section{padding:88px 0}
+    @media(max-width:720px){section{padding:70px 0}}
+    .section-eyebrow{color:var(--accent);text-transform:uppercase;letter-spacing:1.8px;font-size:.76rem;font-weight:600;margin-bottom:10px}
+    .section-title{font-size:2.3rem;margin:0 0 14px}
+    .section-lead{color:var(--muted);margin:0 0 34px;max-width:640px}
+
+    .feature-grid{display:grid;grid-template-columns:repeat(3,1fr);gap:20px}
+    @media(max-width:1040px){.feature-grid{grid-template-columns:repeat(2,1fr)}}
+    @media(max-width:720px){.feature-grid{grid-template-columns:1fr}}
+    .feature{background:var(--panel);border-radius:var(--radius);padding:22px;border:1px solid rgba(255,255,255,.06);box-shadow:var(--shadow);display:grid;gap:12px}
+    .feature-icon{width:44px;height:44px;border-radius:14px;background:rgba(45,212,191,.14);display:flex;align-items:center;justify-content:center;color:var(--accent)}
+
+    .cards{display:grid;grid-template-columns:repeat(3,1fr);gap:20px}
     @media(max-width:960px){.cards{grid-template-columns:repeat(2,1fr)}}
     @media(max-width:640px){.cards{grid-template-columns:1fr}}
-    .card{background:var(--panel);border:1px solid rgba(255,255,255,.06);border-radius:var(--radius);padding:18px;box-shadow:var(--shadow)}
-    .card h3{margin:6px 0 6px;font-size:18px}
-    .pill{display:inline-block;font-size:12px;color:#0b1114;background:var(--accent);padding:4px 8px;border-radius:999px;font-weight:600}
-    .price{font-size:22px;font-weight:700}
-    .meta{color:var(--muted);font-size:14px}
-    .team{display:grid;grid-template-columns:repeat(4,1fr);gap:18px}
-    @media(max-width:1024px){.team{grid-template-columns:repeat(2,1fr)}}
-    @media(max-width:560px){.team{grid-template-columns:1fr}}
-    .person{background:var(--panel);border:1px solid rgba(255,255,255,.06);border-radius:var(--radius);overflow:hidden;box-shadow:var(--shadow)}
-    .person .photo{aspect-ratio:4/3;background:#0c0f14 url("assets/img/team-placeholder.png")center/cover no-repeat}
-    .person .box{padding:14px}
-    .role{color:var(--muted);font-size:14px}
-    .contact-grid{display:grid;grid-template-columns:1.1fr .9fr;gap:18px}
-    @media(max-width:960px){.contact-grid{grid-template-columns:1fr}}
-    .panel{background:var(--panel);border:1px solid rgba(255,255,255,.06);border-radius:var(--radius);padding:18px;box-shadow:var(--shadow)}
-    .row{display:grid;grid-template-columns:120px 1fr;gap:8px;padding:8px 0;border-bottom:1px dashed rgba(255,255,255,.08)}
+    .card{background:var(--panel);border:1px solid rgba(255,255,255,.05);border-radius:var(--radius);padding:22px;box-shadow:var(--shadow);display:flex;flex-direction:column;gap:12px}
+    .card h3{margin:6px 0 0;font-size:1.12rem}
+    .pill{display:inline-flex;align-items:center;gap:6px;font-size:.72rem;letter-spacing:.5px;text-transform:uppercase;color:#041013;background:var(--accent);padding:6px 10px;border-radius:999px;font-weight:700}
+    .price{font-size:1.8rem;font-weight:700}
+    .meta{color:var(--muted);font-size:.92rem}
+
+    .studio-grid{display:grid;grid-template-columns:1.1fr .9fr;gap:34px;align-items:start}
+    @media(max-width:960px){.studio-grid{grid-template-columns:1fr;gap:26px}}
+    .studio-panel{background:var(--panel-soft);border-radius:var(--radius);padding:26px;border:1px solid rgba(255,255,255,.05);box-shadow:var(--shadow)}
+    .bullet-list{list-style:none;padding:0;margin:18px 0 0;display:grid;gap:10px}
+    .bullet-list li{display:flex;gap:10px}
+    .bullet-list svg{flex-shrink:0;margin-top:4px;color:var(--accent)}
+
+    .team{display:grid;grid-template-columns:repeat(4,1fr);gap:20px}
+    @media(max-width:1100px){.team{grid-template-columns:repeat(2,1fr)}}
+    @media(max-width:640px){.team{grid-template-columns:1fr}}
+    .person{background:var(--panel);border:1px solid rgba(255,255,255,.05);border-radius:var(--radius);overflow:hidden;box-shadow:var(--shadow);display:flex;flex-direction:column}
+    .person .photo{aspect-ratio:4/3;background:#0c1018 center/cover no-repeat}
+    .person .box{padding:18px 20px;display:grid;gap:6px}
+    .role{color:var(--muted);font-size:.9rem}
+
+    .testimonials{display:grid;grid-template-columns:repeat(3,1fr);gap:20px}
+    @media(max-width:1040px){.testimonials{grid-template-columns:repeat(2,1fr)}}
+    @media(max-width:720px){.testimonials{grid-template-columns:1fr}}
+    .quote{background:var(--panel-soft);border-radius:var(--radius);padding:24px;border:1px solid rgba(255,255,255,.05);box-shadow:var(--shadow);display:grid;gap:14px}
+    .quote footer{color:var(--muted);font-size:.88rem}
+
+    .faq{display:grid;gap:16px}
+    details{background:var(--panel);border-radius:var(--radius);padding:18px 22px;border:1px solid rgba(255,255,255,.06);box-shadow:var(--shadow)}
+    details[open]{border-color:rgba(45,212,191,.35)}
+    summary{cursor:pointer;font-weight:600;list-style:none}
+    summary::-webkit-details-marker{display:none}
+    details p{margin:12px 0 0;color:var(--muted)}
+
+    .contact-grid{display:grid;grid-template-columns:1.1fr .9fr;gap:22px}
+    @media(max-width:960px){.contact-grid{grid-template-columns:1fr;gap:20px}}
+    .panel{background:var(--panel);border:1px solid rgba(255,255,255,.06);border-radius:var(--radius);padding:24px;box-shadow:var(--shadow)}
+    .row{display:grid;grid-template-columns:130px 1fr;gap:10px;padding:10px 0;border-bottom:1px dashed rgba(255,255,255,.1)}
     .row:last-child{border-bottom:none}
-    .booking-wrap{background:linear-gradient(180deg,rgba(51,204,204,.08),rgba(51,204,204,0));border:1px solid rgba(255,255,255,.06);border-radius:var(--radius);padding:18px}
-    .booking-hint{color:var(--muted);font-size:14px;margin:8px 0 0}
-    footer{padding:40px 0 60px;color:var(--muted);border-top:1px solid rgba(255,255,255,.06)}
-    .foot{display:flex;justify-content:space-between;gap:12px;flex-wrap:wrap}
+    .booking-wrap{background:linear-gradient(180deg,rgba(45,212,191,.12),rgba(45,212,191,0));border:1px solid rgba(255,255,255,.08);border-radius:var(--radius);padding:24px;box-shadow:var(--shadow)}
+    .booking-hint{color:var(--muted);font-size:.9rem;margin:12px 0 0}
+
+    .cta-panel{margin-top:34px;padding:26px;border-radius:var(--radius);background:linear-gradient(135deg,rgba(45,212,191,.18),rgba(45,212,191,.04));border:1px solid rgba(255,255,255,.08);display:flex;flex-wrap:wrap;align-items:center;gap:18px;justify-content:space-between}
+    .cta-panel strong{font-size:1.2rem}
+
+    footer{padding:46px 0 60px;color:var(--muted);border-top:1px solid rgba(255,255,255,.06);margin-top:40px;background:rgba(8,10,15,.92)}
+    .foot{display:flex;justify-content:space-between;gap:18px;flex-wrap:wrap;align-items:center}
     .foot a{color:var(--muted)}
     .foot a:hover{color:var(--text)}
-    .wa{position:fixed;right:18px;bottom:18px;width:54px;height:54px;border-radius:50%;background:var(--accent);color:#0b1114;display:flex;align-items:center;justify-content:center;font-weight:800;box-shadow:var(--shadow)}
-    .wa:hover{background:var(--accent-2)}
+
+    .wa{position:fixed;right:18px;bottom:18px;width:58px;height:58px;border-radius:50%;background:var(--accent);color:#041013;display:flex;align-items:center;justify-content:center;font-weight:800;box-shadow:var(--shadow);transition:transform .2s ease}
+    .wa:hover{transform:translateY(-2px);background:var(--accent-2)}
   </style>
 </head>
 <body>
+  <a href="#home" class="skip-link">Zum Inhalt springen</a>
   <header class="header">
     <div class="container nav">
       <a href="#home" class="logo" aria-label="Alle‑Friseur — Startseite">Alle‑<b>Friseur</b></a>
       <nav class="menu" id="menu" aria-label="Hauptmenü">
+        <a href="#leistungen">Leistungen</a>
         <a href="#preise">Preise</a>
+        <a href="#studio">Studio</a>
         <a href="#team">Team</a>
         <a href="#kontakt">Kontakt</a>
-        <a href="#" class="cta" title="Online‑Termin buchen" id="cta-nav" data-open-booking>Termin buchen</a>
+        <a href="#faq">FAQ</a>
+        <a href="#buchen" class="cta" title="Online‑Termin buchen" id="cta-nav" data-open-booking>Termin buchen</a>
       </nav>
       <button class="burger" id="burger" aria-label="Menü">☰</button>
     </div>
   </header>
 
-  <section id="home" class="hero">
-    <div class="container inner">
-      <div class="kicker">Hamburg · City</div>
-      <h1>Alle‑Friseur — stilvolle Schnitte im Zentrum von Hamburg</h1>
-      <p class="subtitle">Herrenhaarschnitte, Bart- und Stylingpflege. Online-Termin in einer Minute.</p>
-      <div class="actions">
-        <a href="#" class="btn-primary btn" id="cta-hero" data-open-booking>Jetzt Termin buchen</a>
-        <a href="#preise" class="btn">Preise ansehen</a>
-      </div>
-    </div>
-  </section>
-
-  <section id="preise">
-    <div class="container">
-      <h2 class="section-title">Preise · Herren</h2>
-      <p class="section-lead">Transparente Preise und klare Zeiten. Aktuell nur Herren‑Services.</p>
-      <div class="cards">
-        <article class="card"><span class="pill">Popular</span><h3>Haarschnitt · Herren</h3><p class="meta">Dauer: ca. 30 Min</p><div class="price">€28</div></article>
-        <article class="card"><h3>Skin Fade / Fade</h3><p class="meta">Dauer: ca. 40 Min</p><div class="price">€33</div></article>
-        <article class="card"><h3>Maschinen­schnitt</h3><p class="meta">Dauer: ca. 20 Min</p><div class="price">€20</div></article>
-        <article class="card"><h3>Bart & Konturen</h3><p class="meta">Dauer: ca. 20 Min</p><div class="price">€18</div></article>
-        <article class="card"><h3>Haarschnitt + Bart</h3><p class="meta">Dauer: ca. 50 Min</p><div class="price">€42</div></article>
-        <article class="card"><h3>Graukaschierung (Tönung)</h3><p class="meta">Dauer: ca. 25 Min</p><div class="price">€27</div></article>
-      </div>
-    </div>
-  </section>
-
-  <section id="team">
-    <div class="container">
-      <h2 class="section-title">Team</h2>
-      <p class="section-lead">Vier Spezialisten. Unterschiedliche Stile – ein Qualitätsstandard.</p>
-      <div class="team">
-        <article class="person"><div class="photo" style="background-image:url('assets/img/teamlucas.png')"></div><div class="box"><h3>Lukas Schneider</h3><div class="role">Master Barber · Klassik & Textur</div></div></article>
-        <article class="person"><div class="photo" style="background-image:url('assets/img/teammerl.png')"></div><div class="box"><h3>Meral Yılmaz</h3><div class="role">Fade Specialist · Konturen & Linien</div></div></article>
-        <article class="person"><div class="photo" style="background-image:url('assets/img/teamjonas.png')"></div><div class="box"><h3>Jonas Becker</h3><div class="role">Beard Expert · Bartpflege</div></div></article>
-        <article class="person"><div class="photo" style="background-image:url('assets/img/teamlevi.png')"></div><div class="box"><h3>Levi Müller</h3><div class="role">Color & Toning · Natürliche dunkle Töne</div></div></article>
-      </div>
-    </div>
-  </section>
-
-  <section id="kontakt">
-    <div class="container">
-      <h2 class="section-title">Kontakt</h2>
-      <p class="section-lead">Schreibe per WhatsApp, rufe an oder komm vorbei. Wir sind in der Nähe.</p>
-      <div class="contact-grid">
-        <div class="panel">
-          <div class="row"><strong>Adresse</strong><div>Mönckebergstraße 1, 20095 Hamburg</div></div>
-          <div class="row"><strong>Telefon</strong><div><a href="tel:+4917600000000">+49 176 00000000</a></div></div>
-          <div class="row"><strong>WhatsApp</strong><div><a href="https://wa.me/4917600000000?text=Hallo,%20ich%20m%C3%B6chte%20einen%20Termin%20buchen" target="_blank" rel="noopener">Per WhatsApp schreiben</a></div></div>
-          <div class="row"><strong>E‑Mail</strong><div><a href="mailto:info@alle-friseur.de">info@alle-friseur.de</a></div></div>
-          <div class="row"><strong>Öffnungszeiten</strong><div>Mon–Fri 09:00–19:00, Sat 10:00–16:00</div></div>
+  <main id="home">
+    <section class="hero" aria-labelledby="hero-title">
+      <div class="container inner">
+        <div>
+          <div class="kicker">Hamburg · Innenstadt</div>
+          <h1 id="hero-title">Herrensalon für präzise Schnitte, moderne Fades und Bartpflege</h1>
+          <p class="subtitle">Wir kombinieren traditionelles Handwerk mit aktuellen Trends. In weniger als einer Minute sicherst du dir deinen Termin in unserem Studio an der Mönckebergstraße.</p>
+          <div class="hero-actions">
+            <a href="#" class="btn-primary btn" id="cta-hero" data-open-booking>Jetzt Termin buchen</a>
+            <a href="#preise" class="btn">Preise ansehen</a>
+          </div>
+          <ul class="hero-list">
+            <li>
+              <svg width="20" height="20" viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg"><path d="M5 13l4 4L19 7" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/></svg>
+              <span>30+ Jahre Erfahrung im Team – jeder Stil wird präzise umgesetzt.</span>
+            </li>
+            <li>
+              <svg width="20" height="20" viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg"><path d="M5 13l4 4L19 7" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/></svg>
+              <span>Pflegeberatung & Styling-Tipps inklusive: so hält dein Look auch daheim.</span>
+            </li>
+            <li>
+              <svg width="20" height="20" viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg"><path d="M5 13l4 4L19 7" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/></svg>
+              <span>Digitale Terminverwaltung – Erinnerungen kommen automatisch.</span>
+            </li>
+          </ul>
         </div>
-        <div class="panel" aria-label="Karte">
-          <iframe title="Alle‑Friseur Hamburg" width="100%" height="320" style="border:0;border-radius:12px" loading="lazy" allowfullscreen referrerpolicy="no-referrer-when-downgrade" src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d1868.5508!2d9.997!3d53.551!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x0%3A0x0!2sHamburg%20City!5e0!3m2!1sde!2sde!4v0000000000"></iframe>
+        <div class="hero-media" role="presentation" aria-hidden="true"></div>
+      </div>
+    </section>
+
+    <section id="leistungen">
+      <div class="container">
+        <div class="section-eyebrow">Leistungen</div>
+        <h2 class="section-title">Präzise Schnitte & gepflegte Bärte</h2>
+        <p class="section-lead">Vom klassischen Business-Cut bis zum kreativen Fade – wir setzen deinen Stil um. Unsere Tools sind modern, unsere Techniken geschult und unser Anspruch hoch.</p>
+        <div class="feature-grid">
+          <article class="feature">
+            <div class="feature-icon">
+              <svg width="22" height="22" viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg"><path d="M5 6h14M5 12h14M5 18h7" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/></svg>
+            </div>
+            <h3>Haircuts &amp; Styling</h3>
+            <p class="meta">Individuelle Beratung, präzise Schnitte und perfektes Finish mit hochwertigen Styling-Produkten.</p>
+          </article>
+          <article class="feature">
+            <div class="feature-icon">
+              <svg width="22" height="22" viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg"><path d="M12 1v22M5 5h14l-1 5-5 3v6l-2 4-2-4v-6l-5-3-1-5z" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/></svg>
+            </div>
+            <h3>Bartpflege &amp; Konturen</h3>
+            <p class="meta">Schärfe Linien, gesunde Bartstruktur und entspannende Pflege – inklusive heißem Tuch.</p>
+          </article>
+          <article class="feature">
+            <div class="feature-icon">
+              <svg width="22" height="22" viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg"><path d="M12 5a7 7 0 1 1 0 14 7 7 0 0 1 0-14zm0 0V1m0 22v-4m7-7h4M1 12h4" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/></svg>
+            </div>
+            <h3>Color &amp; Gray Blending</h3>
+            <p class="meta">Feine Tönungen und Graukaschierung, die sich nahtlos in deinen Naturton einfügt.</p>
+          </article>
         </div>
       </div>
-    </div>
-  </section>
+    </section>
 
-  <section id="buchen">
-    <div class="container">
-      <h2 class="section-title">Online buchen</h2>
-      <p class="section-lead">Wähle Mitarbeiter und Uhrzeit. Bestätigung kommt per E‑Mail. Bei Bedarf einfach per WhatsApp schreiben.</p>
-      <div class="booking-wrap">
-        <!-- ▼▼▼ SETMORE WIDGET CODE (aktualisiert) ▼▼▼ -->
-        <script id="setmore_script" type="text/javascript" src="https://assets.setmore.com/integration/static/setmoreIframeLive.js"></script><a style="float: none" id="Setmore_button_iframe" href="https://algor.setmore.com"><img border="none" src="https://assets.setmore.com/integration/images/newdesign/others/book-now-button.svg" alt="Book an appointment with Algor using Setmore" /></a>
-        <!-- ▲▲▲ SETMORE WIDGET CODE ▲▲▲ -->
-        <p class="booking-hint">Widget eingebunden. Obere «Termin buchen»-Buttons öffnen es direkt. Falls es sich als neuer Tab öffnet, blockiert der Browser Popups oder der Setmore‑Link wurde geändert.</p>
+    <section id="preise">
+      <div class="container">
+        <div class="section-eyebrow">Preise</div>
+        <h2 class="section-title">Transparente Tarife ohne Überraschungen</h2>
+        <p class="section-lead">Alle Leistungen beinhalten Beratung, Styling-Produkte und Abschlussstyling. Bar- und Kartenzahlung möglich.</p>
+        <div class="cards">
+          <article class="card"><span class="pill">Beliebt</span><h3>Haarschnitt · Herren</h3><p class="meta">Dauer: ca. 30 Min</p><div class="price">€28</div><p class="meta">Waschen, Schnitt, Finish &amp; Styling-Tipps</p></article>
+          <article class="card"><h3>Skin Fade / Fade</h3><p class="meta">Dauer: ca. 40 Min</p><div class="price">€33</div><p class="meta">Präzise Übergänge mit Rasiermesserdetails</p></article>
+          <article class="card"><h3>Maschinen­schnitt</h3><p class="meta">Dauer: ca. 20 Min</p><div class="price">€20</div><p class="meta">Schnell, akkurat und perfekt symmetrisch</p></article>
+          <article class="card"><h3>Bart &amp; Konturen</h3><p class="meta">Dauer: ca. 20 Min</p><div class="price">€18</div><p class="meta">Inklusive Pflegeöl &amp; heißem Tuch</p></article>
+          <article class="card"><h3>Haarschnitt + Bart</h3><p class="meta">Dauer: ca. 50 Min</p><div class="price">€42</div><p class="meta">Komplettpaket für Kopf &amp; Bart</p></article>
+          <article class="card"><h3>Graukaschierung (Tönung)</h3><p class="meta">Dauer: ca. 25 Min</p><div class="price">€27</div><p class="meta">Natürliches Finish ohne sichtbare Übergänge</p></article>
+        </div>
       </div>
-    </div>
-  </section>
+    </section>
+
+    <section id="studio">
+      <div class="container studio-grid">
+        <div>
+          <div class="section-eyebrow">Studio</div>
+          <h2 class="section-title">Nordisch klar, urban modern</h2>
+          <p class="section-lead">Unser Salon ist ein Ort zum Wohlfühlen: gedimmtes Licht, klare Linien, entspannte Beats. Wir nehmen uns Zeit, hören zu und beraten ehrlich.</p>
+          <ul class="bullet-list">
+            <li>
+              <svg width="18" height="18" viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg"><path d="M5 13l4 4L19 7" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/></svg>
+              <span>Getränkeauswahl: Espresso, Cold Brew &amp; Craft Beer.</span>
+            </li>
+            <li>
+              <svg width="18" height="18" viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg"><path d="M5 13l4 4L19 7" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/></svg>
+              <span>Musik &amp; Ambiente abgestimmt auf Tageszeit und Stimmung.</span>
+            </li>
+            <li>
+              <svg width="18" height="18" viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg"><path d="M5 13l4 4L19 7" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/></svg>
+              <span>City-Lage: 3 Minuten zur U/S-Bahn Jungfernstieg &amp; Parkhäusern.</span>
+            </li>
+          </ul>
+        </div>
+        <aside class="studio-panel">
+          <h3>Dein Vorteil bei Alle‑Friseur</h3>
+          <p>Wir planen großzügige Slots, damit Beratung, Schnitt und Styling ohne Stress stattfinden. Zusatzservices wie Augenbrauenkorrektur oder Gesichtspflege buchst du flexibel vor Ort.</p>
+          <p>Über unsere Setmore-Integration kannst du Mitarbeitende auswählen, Termine verschieben oder dich automatisch erinnern lassen.</p>
+        </aside>
+      </div>
+    </section>
+
+    <section id="team">
+      <div class="container">
+        <div class="section-eyebrow">Team</div>
+        <h2 class="section-title">Vier Spezialist:innen, ein Qualitätsanspruch</h2>
+        <p class="section-lead">Unser Team vereint internationale Barber-Expertise mit hanseatischer Gelassenheit. Wir sprechen Deutsch, Englisch und Türkisch.</p>
+        <div class="team">
+          <article class="person"><div class="photo" style="background-image:url('assets/img/team-lukas.png')"></div><div class="box"><h3>Lukas Schneider</h3><div class="role">Master Barber · Klassik &amp; Textur</div></div></article>
+          <article class="person"><div class="photo" style="background-image:url('assets/img/team-meral.png')"></div><div class="box"><h3>Meral Yılmaz</h3><div class="role">Fade Specialist · Konturen &amp; Linien</div></div></article>
+          <article class="person"><div class="photo" style="background-image:url('assets/img/team-jonas.png')"></div><div class="box"><h3>Jonas Becker</h3><div class="role">Beard Expert · Bartpflege &amp; Pflegeberatung</div></div></article>
+          <article class="person"><div class="photo" style="background-image:url('assets/img/team-levi.png')"></div><div class="box"><h3>Levi Müller</h3><div class="role">Color &amp; Toning · Natürliche dunkle Nuancen</div></div></article>
+        </div>
+      </div>
+    </section>
+
+    <section id="stimmen">
+      <div class="container">
+        <div class="section-eyebrow">Kundenstimmen</div>
+        <h2 class="section-title">Hamburger, die uns vertrauen</h2>
+        <p class="section-lead">Unsere Kund:innen kommen aus Agenturen, Start-ups, der HafenCity und vom Kiez. Drei Meinungen stellvertretend für viele.</p>
+        <div class="testimonials">
+          <figure class="quote">
+            <blockquote>„Der Fade sitzt jedes Mal. Keine Wartezeit, super Stimmung und Produkte, die wirklich funktionieren.“</blockquote>
+            <footer>— Daniel K., Product Designer</footer>
+          </figure>
+          <figure class="quote">
+            <blockquote>„Ich bin viel unterwegs. Termin online buchen, Reminder bekommen und fertig – das ist Service auf Hamburger Niveau.“</blockquote>
+            <footer>— Cem A., Unternehmer</footer>
+          </figure>
+          <figure class="quote">
+            <blockquote>„Graukaschierung, ohne dass jemand etwas merkt. Dazu ehrliche Beratung, welche Pflege wirklich Sinn macht.“</blockquote>
+            <footer>— Martin S., Berater</footer>
+          </figure>
+        </div>
+      </div>
+    </section>
+
+    <section id="faq">
+      <div class="container">
+        <div class="section-eyebrow">FAQ</div>
+        <h2 class="section-title">Häufige Fragen</h2>
+        <p class="section-lead">Noch unsicher? Hier findest du Antworten. Weitere Fragen beantworten wir gern per WhatsApp oder Telefon.</p>
+        <div class="faq">
+          <details>
+            <summary>Welche Zahlungsmittel akzeptiert ihr?</summary>
+            <p>Wir akzeptieren Bargeld, EC-/Kreditkarte sowie Apple Pay und Google Pay. Rechnungen für Firmenkunden sind ebenfalls möglich.</p>
+          </details>
+          <details>
+            <summary>Kann ich meinen Termin verschieben?</summary>
+            <p>Über den Link in deiner Bestätigungsmail kannst du Termine selbst verwalten. Bis 12 Stunden vorher ist das kostenlos, danach ruf uns bitte kurz an.</p>
+          </details>
+          <details>
+            <summary>Was ist, wenn ich mich verspäte?</summary>
+            <p>Wir halten deinen Slot 10 Minuten frei. Wenn du später kommst, geben wir unser Bestes – ruf kurz an, damit wir planen können.</p>
+          </details>
+          <details>
+            <summary>Bietet ihr auch Services für Jugendliche an?</summary>
+            <p>Ja, ab 12 Jahren. Sprich uns bei der Buchung an, damit wir genug Zeit einplanen und passende Produkte vorbereiten können.</p>
+          </details>
+        </div>
+      </div>
+    </section>
+
+    <section id="kontakt">
+      <div class="container">
+        <div class="section-eyebrow">Kontakt</div>
+        <h2 class="section-title">Direkt im Zentrum Hamburgs</h2>
+        <p class="section-lead">Schreib uns per WhatsApp, ruf an oder komm vorbei. Parkmöglichkeiten und ÖPNV sind direkt um die Ecke.</p>
+        <div class="contact-grid">
+          <div class="panel">
+            <div class="row"><strong>Adresse</strong><div>Mönckebergstraße 1, 20095 Hamburg</div></div>
+            <div class="row"><strong>Telefon</strong><div><a href="tel:+4917600000000">+49 176 00000000</a></div></div>
+            <div class="row"><strong>WhatsApp</strong><div><a href="https://wa.me/4917600000000?text=Hallo,%20ich%20m%C3%B6chte%20einen%20Termin%20buchen" target="_blank" rel="noopener">Per WhatsApp schreiben</a></div></div>
+            <div class="row"><strong>E‑Mail</strong><div><a href="mailto:info@alle-friseur.de">info@alle-friseur.de</a></div></div>
+            <div class="row"><strong>Öffnungszeiten</strong><div>Mon–Fri 09:00–19:00 · Sat 10:00–16:00</div></div>
+          </div>
+          <div class="panel" aria-label="Karte">
+            <iframe title="Alle‑Friseur Hamburg" width="100%" height="320" style="border:0;border-radius:14px" loading="lazy" allowfullscreen referrerpolicy="no-referrer-when-downgrade" src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d1868.5508!2d9.997!3d53.551!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x0%3A0x0!2sHamburg%20City!5e0!3m2!1sde!2sde!4v0000000000"></iframe>
+          </div>
+        </div>
+        <div class="cta-panel">
+          <strong>Noch Fragen? Wir antworten innerhalb weniger Minuten.</strong>
+          <div class="hero-actions">
+            <a href="#" class="btn-primary btn" data-open-booking>Termin sichern</a>
+            <a class="btn" href="https://wa.me/4917600000000?text=Hallo,%20ich%20habe%20eine%20Frage" target="_blank" rel="noopener">WhatsApp öffnen</a>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <section id="buchen">
+      <div class="container">
+        <div class="section-eyebrow">Online buchen</div>
+        <h2 class="section-title">Wähle Mitarbeitende &amp; Uhrzeit</h2>
+        <p class="section-lead">Du kannst Termine selbst verschieben oder stornieren. Bei Fragen erreichst du uns jederzeit.</p>
+        <div class="booking-wrap">
+          <!-- ▼▼▼ SETMORE WIDGET CODE (aktualisiert) ▼▼▼ -->
+          <script id="setmore_script" type="text/javascript" src="https://assets.setmore.com/integration/static/setmoreIframeLive.js"></script><a style="float: none" id="Setmore_button_iframe" href="https://algor.setmore.com"><img border="none" src="https://assets.setmore.com/integration/images/newdesign/others/book-now-button.svg" alt="Book an appointment with Algor using Setmore" /></a>
+          <!-- ▲▲▲ SETMORE WIDGET CODE ▲▲▲ -->
+          <p class="booking-hint">Die Buttons oben auf der Seite öffnen das Widget direkt. Sollte sich ein neuer Tab öffnen, bitte Pop-up-Blocker deaktivieren oder den Link manuell anklicken.</p>
+        </div>
+      </div>
+    </section>
+  </main>
 
   <footer>
     <div class="container foot">
@@ -175,20 +373,24 @@
     <div class="container" id="datenschutz" style="margin-top:16px;color:var(--muted);font-size:14px"><strong>Datenschutzerklärung (Beispiel)</strong><br>Hinweise zur Verarbeitung personenbezogener Daten bei der Online‑Terminbuchung (Setmore) folgen hier.</div>
   </footer>
 
+  <a class="wa" href="https://wa.me/4917600000000?text=Hallo,%20ich%20m%C3%B6chte%20einen%20Termin%20buchen" target="_blank" rel="noopener" aria-label="WhatsApp Nachricht an Alle‑Friseur">WA</a>
+
   <script>
-    // Mobile menu toggle
     const burger = document.getElementById('burger');
     const menu = document.getElementById('menu');
     burger?.addEventListener('click', ()=> menu.classList.toggle('open'));
     menu?.querySelectorAll('a').forEach(a=>a.addEventListener('click',()=>menu.classList.remove('open')));
 
-    // Open Setmore widget from top buttons immediately
     function openBooking(e){
       if(e) e.preventDefault();
       const anchor = document.getElementById('Setmore_button_iframe');
       const href = anchor ? anchor.getAttribute('href') : null;
-      if(anchor){ try { anchor.click(); return; } catch(err){} }
-      if(href && href.startsWith('http')){ window.open(href,'_blank','noopener'); return; }
+      if(anchor){ try { anchor.click(); return; } catch(err){}
+      }
+      if(href && href.startsWith('http')){
+        window.open(href,'_blank','noopener');
+        return;
+      }
       document.getElementById('buchen')?.scrollIntoView({behavior:'smooth'});
     }
     document.querySelectorAll('[data-open-booking]').forEach(el=> el.addEventListener('click', openBooking));
